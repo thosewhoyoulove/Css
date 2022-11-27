@@ -1,0 +1,161 @@
+<!--
+ * @Description: 
+ * @Author: 曹俊
+ * @Date: 2022-11-27 19:09:08
+ * @LastEditors: 曹俊
+ * @LastEditTime: 2022-11-27 20:22:49
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>三栏布局</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      /* .outer{}.left{}.center{}.right{} */
+      /*（1）利用绝对定位的方式，父级设置相对定位，左右两栏设置为绝对定位，中间设置对应方向大小的margin的值。*/
+      /* .outer {
+        position: relative;
+        height: 100vh;
+      }
+
+      .left {
+        position: absolute;
+        width: 100px;
+        height: 100%;
+        background-color: aqua;
+      }
+
+      .center {
+        margin-left: 100px;
+        margin-right: 200px;
+        background-color: aquamarine;
+        height: 100%;
+      }
+
+      .right {
+        position: absolute;
+        width: 200px;
+        height: 100%;
+        right: 0;
+        top: 0;
+        background-color: bisque;
+      } */
+      /*（2）利用flex布局的方式，左右两栏的放大和缩小比例都设置为0，基础大小设置为固定的大小，中间一栏设置为auto*/
+      /* .outer {
+        display: flex;
+        height: 100vh;
+      }
+
+      .left {
+        flex: 0 0 100px;
+        background-color: aqua;
+      }
+
+      .center {
+        flex: auto;
+        background-color: beige;
+      }
+
+      .right {
+        flex: 0 0 200px;
+        background-color: aquamarine;
+      } */
+      /* 或者将父级设置为flex布局，然后给中间设置flex为1 */
+      /* .outer {
+        height: 100px;
+        display: flex;
+      }
+
+      .left {
+        width: 100px;
+        height: 100px;
+        background: tomato;
+      }
+
+      .center {
+        flex: 1;
+        background-color: aqua;
+      }
+
+      .right {
+        width: 200px;
+        height: 100px;
+        background: gold;
+      } */
+      /*（3）利用浮动的方式，左右两栏设置固定大小，并设置对应方向的浮动。中间一栏设置左右两个方向的margin值，注意这种方式，中间一栏必须放到最后。*/
+      /* .outer {
+        height: 100vh;
+      }
+
+      .left {
+        float: left;
+        width: 100px;
+        height: 100%;
+        background-color: aqua;
+      }
+
+      .center {
+        height: 100%;
+        margin-left: 100px;
+        margin-right: 200px;
+        background-color: bisque;
+      }
+
+      .right {
+        float: right;
+        width: 200px;
+        height: 100%;
+        background-color: aquamarine;
+      } */
+      /*（4）圣杯布局，利用浮动和负边距来实现。父级元素设置左右的 padding，三列均设置向左浮动，中间一列放在最前面，宽度设置为父级元素的宽度，因此后面两列都被挤到了下一行，通过设置 margin 负值将其移动到上一行，再利用相对定位，定位到两边。*/
+      /* .outer {
+        height: 100vh;
+        padding-left: 100px;
+        padding-right: 200px;
+      }
+
+      .center {
+        float: left;
+        width: 100%;
+        height: 200px;
+        background: lightgreen;
+      }
+
+      .left {
+        position: relative;
+        left: -100px;
+        float: left;
+        margin-left: -100%;
+        width: 100px;
+        height: 200px;
+        background-color: aqua;
+      }
+
+      .right {
+        position: relative;
+        left: 200px;
+        float: right;
+        margin-left: -200px;
+        width: 200px;
+        height: 200px;
+        background: gold;
+      } */
+      /*（5）双飞翼布局，双飞翼布局相对于圣杯布局来说，左右位置的保留是通过中间列的 margin 值来实现的，而不是通过父元
+素的 padding 来实现的。本质上来说，也是通过浮动和外边距负值来实现的。*/
+    </style>
+  </head>
+
+  <body>
+    <div class="outer">
+      <div class="left"></div>
+      <div class="center"></div>
+      <div class="right"></div>
+    </div>
+  </body>
+</html>
